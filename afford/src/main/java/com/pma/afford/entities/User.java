@@ -10,20 +10,20 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "user")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userID;
-	
+
 	@Column(name = "userFirstName", nullable = false, length = 45)
 	private String userFirstName;
-	
+
 	@Column(name = "userLastName", nullable = false, length = 45)
 	private String userLastName;
-	
+
 	@Column(name = "userMail", nullable = false, unique = true, length = 45)
 	private String userMail;
-	
+
 	@Column(name = "userPassword", nullable = false, unique = true, length = 45)
 	private String userPassword;
 
@@ -77,5 +77,5 @@ public class User {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
-	}	
+	}
 }

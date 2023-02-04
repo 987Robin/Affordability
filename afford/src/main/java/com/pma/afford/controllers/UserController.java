@@ -11,20 +11,21 @@ import com.pma.afford.services.UserService;
 
 @RestController
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
-	
-	@PostMapping("/signUp")
+
+	@PostMapping("/registration")
 	public String saveUser(@RequestBody User user) {
 		userService.saveNewUser(user);
-		
-		return "Succesful";
+		return "<h1>Succesful</h1>";
 	}
 	
+
+	// for learning
 	@PostMapping("/getUser/{id}")
 	public User getUserDetails(@PathVariable(name = "id") long userIdentity) {
-		
+
 		return userService.getUserDetailsById(userIdentity);
 	}
 }
