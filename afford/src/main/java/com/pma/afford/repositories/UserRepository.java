@@ -8,4 +8,5 @@ import com.pma.afford.entities.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
+	Boolean existsByUserMail(String userMail);
 }

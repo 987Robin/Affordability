@@ -24,19 +24,24 @@ public class User {
 	@Column(name = "userMail", nullable = false, unique = true, length = 45)
 	private String userMail;
 
-	@Column(name = "userPassword", nullable = false, unique = true, length = 45)
+	@Column(name = "userPassword", nullable = false, length = 45)
 	private String userPassword;
+	
+	@Column(name = "userPhoneNumber", nullable = false, length = 12)
+	private Integer userPhoneName;
 
 	public User() {
 		super();
 	}
 
-	public User(String userFirstName, String userLastName, String userMail, String userPassword) {
+	public User(String userFirstName, String userLastName, String userMail, String userPassword,
+			Integer userPhoneName) {
 		super();
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.userMail = userMail;
 		this.userPassword = userPassword;
+		this.userPhoneName = userPhoneName;
 	}
 
 	public long getUserID() {
@@ -77,5 +82,13 @@ public class User {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
+	}
+
+	public Integer getUserPhoneName() {
+		return userPhoneName;
+	}
+
+	public void setUserPhoneName(Integer userPhoneName) {
+		this.userPhoneName = userPhoneName;
 	}
 }

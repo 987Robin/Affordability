@@ -1,8 +1,10 @@
 package com.pma.afford.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.pma.afford.entities.LoginUser;
 import com.pma.afford.entities.User;
 import com.pma.afford.repositories.UserRepository;
 
@@ -11,15 +13,24 @@ public class UserServiceImplementation implements UserService{
 
 	@Autowired
 	UserRepository userRepo;
+	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
 
 	@Override
-	public void saveNewUser(User user) {
-		userRepo.save(user);
+	public String saveNewUser(User user) {
+		
+		if(userRepo.existsByUserMail(user.getUserMail())) {
+			return "User already existes";
+		} else {
+			user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+			userRepo.save(user);
+			return "User Saved succesfully";
+		}
 	}
 
-	//for learning
 	@Override
-	public User getUserDetailsById(long Id) {
-		return userRepo.findById(Id).get();
+	public String authLoginUser(LoginUser loginUser) {
+		return "Login Succesful";
 	}
 }
