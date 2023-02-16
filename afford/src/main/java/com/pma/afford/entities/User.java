@@ -1,7 +1,5 @@
 package com.pma.afford.entities;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class UserEntity implements Serializable {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,12 +30,12 @@ public class UserEntity implements Serializable {
 	@Column(name = "userPhoneNumber", nullable = false, length = 12)
 	private long userPhoneNumber;
 
-	public UserEntity() {
+	public User() {
 		super();
 	}
 
-	public UserEntity(String userFirstName, String userLastName, String userMail, String userPassword,
-			Integer userPhoneNumber) {
+	public User(String userFirstName, String userLastName, String userMail, String userPassword,
+				Integer userPhoneNumber) {
 		super();
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
@@ -86,7 +84,7 @@ public class UserEntity implements Serializable {
 		this.userPassword = userPassword;
 	}
 
-	public UserEntity(long userPhoneNumber) {
+	public User(long userPhoneNumber) {
 		super();
 		this.userPhoneNumber = userPhoneNumber;
 	}

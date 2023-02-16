@@ -1,7 +1,5 @@
 package com.pma.afford.repositories;
 
-import com.pma.afford.entities.UserEntity;
-import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
